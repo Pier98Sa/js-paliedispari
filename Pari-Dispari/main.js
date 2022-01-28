@@ -23,10 +23,14 @@ function pariDispari ( num1,num2 ){
 /*PROGRAMMA*/
 
 //variabili
-//l'user scegli pari o disparo
-let choosePariDispari = prompt("scegli pari o dispari");
+//l'user scegli pari o disparo e validazione che la parola sia quella corretta
+let choosePariDispari = 0 
+do{
+    choosePariDispari = prompt("scegli pari o dispari").toUpperCase();
+} while(choosePariDispari != "pari".toUpperCase() && choosePariDispari != "dispari".toUpperCase())
+
 console.log(choosePariDispari);
-//l'user sceglie un numero tra 1 e 5 con validazione del numero in entrata
+//l'user sceglie un numero tra 1 e 5 e validazione del numero in entrata
 let numUser = 0;
 do{
     numUser= parseInt(prompt("inserisci un numero compreso tra 1 e 5"));
@@ -46,7 +50,7 @@ console.log(risultato);
 
 
 //si controlla se l'esito pronosticato dall'user è giusto o sbagliato
-if ( choosePariDispari == risultato) {
+if ( choosePariDispari == risultato.toUpperCase()) {
     console.log('Il giocatore ha vinto');
 } else {
     console.log("Ha vinto il computer");
