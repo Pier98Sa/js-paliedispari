@@ -22,38 +22,72 @@ function pariDispari ( num1,num2 ){
 
 /*PROGRAMMA*/
 
-//variabili
-//l'user scegli pari o disparo e validazione che la parola sia quella corretta
-let choosePariDispari = 0 
-do{
-    choosePariDispari = prompt("scegli pari o dispari").toUpperCase();
-} while(choosePariDispari != "pari".toUpperCase() && choosePariDispari != "dispari".toUpperCase())
+//variabili button
+let buttonPlay = document.getElementById("play-game");
+let buttonReset = document.getElementById("reset-game");
 
-console.log(choosePariDispari);
-//l'user sceglie un numero tra 1 e 5 e validazione del numero in entrata
-let numUser = 0;
-do{
-    numUser= parseInt(prompt("inserisci un numero compreso tra 1 e 5"));
-}while(isNaN(numUser) || numUser < 1 || numUser > 5)
+buttonPlay.addEventListener('click',
+    function() {
+        //variabili da inizializzare
+        let choosePariDispari = 0 
+        let numUser = 0;
+        let esitoPartita;
 
+        //l'user scegli pari o disparo e validazione che la parola sia quella corretta
+        do{
+            choosePariDispari = prompt("scegli pari o dispari").toUpperCase();
+        } while(choosePariDispari != "pari".toUpperCase() && choosePariDispari != "dispari".toUpperCase())
+        
+        //l'user sceglie un numero tra 1 e 5 e validazione del numero in entrata
+        do{
+            numUser= parseInt(prompt("inserisci un numero compreso tra 1 e 5"));
+        }while(isNaN(numUser) || numUser < 1 || numUser > 5)
 
-console.log(numUser);
+        //il pc estrae il suo numero
+        let numPc = numRandom1To5();
 
-//il pc estrae il suo numero
-let numPc = numRandom1To5();
+        //si sommano i due numeri e vediamo se la somma ci da un numero pari o dispari
+        let risultato = pariDispari (numUser,numPc);
 
-console.log(numPc);
+        //si controlla se l'esito pronosticato dall'user è giusto o sbagliato
+        if ( choosePariDispari == risultato.toUpperCase()) {
+            esitoPartita = ('Il giocatore ha vinto');
+        } else {
+            esitoPartita = ("Ha vinto il computer");
+        }  
 
-//si sommano i due numeri e vediamo se la somma ci da un numero pari o dispari
-let risultato = pariDispari (numUser,numPc);
-console.log(risultato);
+        //stampa del numero dell'utente
+        document.getElementById('user-number').innerHTML = numUser;
 
+        //stampa del pronostico dell'utente
+        document.getElementById('esito-user').innerHTML = choosePariDispari;
 
-//si controlla se l'esito pronosticato dall'user è giusto o sbagliato
-if ( choosePariDispari == risultato.toUpperCase()) {
-    console.log('Il giocatore ha vinto');
-} else {
-    console.log("Ha vinto il computer");
-}
+        //stampa del numero del computer
+        document.getElementById('computer-number').innerHTML = numPc;
+
+        //stampa del esito
+        document.getElementById('esito').innerHTML = esitoPartita;
+        
+        //aggiunta della classe active per mostrare il risultato
+        const htmlEsitoPartita = document.getElementById('box-esito');
+        htmlEsitoPartita.classList.remove('d-none');
+    }    
+    
+);
+
+//evento del click su reset
+buttonReset.addEventListener('click',
+    function(){
+        //resetto i dati alla versione iniziale
+        document.getElementById('user-number').innerHTML = "";
+        document.getElementById('esito-user').innerHTML = "";
+        document.getElementById('computer-number').innerHTML = "";
+        //riaggiungo la classe ms-none
+        const htmlEsitoPartita = document.getElementById('box-esito');
+        htmlEsitoPartita.classList.add('d-none');
+    
+    }   
+);
+
 
 
