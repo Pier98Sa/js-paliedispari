@@ -12,13 +12,10 @@ function palindromo(messaggio) {
    //inizializzo le variabili
     let revParola;
     let esito;
-    let parola;
-    
+
     //acquisisco la stringa, in cui elimino gli spazi e la trasformo tutti i caratteri in maiuscolo
-    // controllo che non inseriscano numeri all'interno della stringa 
-    do{
-        parola = prompt(messaggio).replaceAll(" ","").toUpperCase();
-    }while(!isNaN(parola))
+    
+    let parola = prompt(messaggio).replaceAll(" ","").toUpperCase();
 
    //divido la parola o le parole in caratteri, ne inverto l'ordine e poi li riunisco
     revParola = parola.split("").reverse().join("");
