@@ -12,9 +12,13 @@ function palindromo(messaggio) {
    //inizializzo le variabili
     let revParola;
     let esito;
-
+    let parola;
+    
     //acquisisco la stringa, in cui elimino gli spazi e la trasformo tutti i caratteri in maiuscolo
-    let parola = prompt(messaggio).replaceAll(" ","").toUpperCase();
+    // controllo che non inseriscano numeri all'interno della stringa 
+    do{
+        parola = prompt(messaggio).replaceAll(" ","").toUpperCase();
+    }while(!isNaN(parola))
 
    //divido la parola o le parole in caratteri, ne inverto l'ordine e poi li riunisco
     revParola = parola.split("").reverse().join("");
@@ -22,10 +26,10 @@ function palindromo(messaggio) {
     //confronto le due stringhe
     if (revParola === parola){
 
-        esito = alert("è un palindromo");
+        esito = ("è un palindromo");
     
     }else{
-        esito = alert("non è un palindromo");
+        esito = ("non è un palindromo");
     }
 
     return esito;
@@ -33,4 +37,12 @@ function palindromo(messaggio) {
 
 }
 
-palindromo("Inserisci una parola o una frase");
+//button
+const buttonInsert = document.getElementById("Insert");
+
+buttonInsert.addEventListener("click", function(){
+    document.getElementById("risultato").innerHTML = palindromo("Inserisci una parola o una frase");
+    const htmlEsito = document.getElementById('esito');
+        htmlEsito.classList.remove('d-none');
+  });
+
