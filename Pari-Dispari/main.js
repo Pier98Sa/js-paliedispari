@@ -68,7 +68,7 @@ buttonPlay.addEventListener('click',
         //stampa del esito
         document.getElementById('esito').innerHTML = esitoPartita;
         
-        //aggiunta della classe active per mostrare il risultato
+        //rimozione della classe none
         const htmlEsitoPartita = document.getElementById('box-esito');
         htmlEsitoPartita.classList.remove('d-none');
     }    
@@ -82,7 +82,7 @@ buttonReset.addEventListener('click',
         document.getElementById('user-number').innerHTML = "";
         document.getElementById('esito-user').innerHTML = "";
         document.getElementById('computer-number').innerHTML = "";
-        //riaggiungo la classe ms-none
+        //riaggiungo la classe d-none
         const htmlEsitoPartita = document.getElementById('box-esito');
         htmlEsitoPartita.classList.add('d-none');
     
