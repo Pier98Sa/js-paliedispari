@@ -26,6 +26,7 @@ function pariDispari ( num1,num2 ){
 let buttonPlay = document.getElementById("play-game");
 let buttonReset = document.getElementById("reset-game");
 
+//evento del click su gioca
 buttonPlay.addEventListener('click',
     function() {
         //variabili da inizializzare
