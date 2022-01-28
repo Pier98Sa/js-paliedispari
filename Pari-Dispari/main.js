@@ -26,9 +26,15 @@ function pariDispari ( num1,num2 ){
 //l'user scegli pari o disparo
 let choosePariDispari = prompt("scegli pari o dispari");
 console.log(choosePariDispari);
-//l'ser sceglie un numero tra 1 e 5
-let numUser = prompt("inserisci un numero compreso tra 1 e 5");
+//l'user sceglie un numero tra 1 e 5 con validazione del numero in entrata
+let numUser = 0;
+do{
+    numUser= parseInt(prompt("inserisci un numero compreso tra 1 e 5"));
+}while(isNaN(numUser) || numUser < 1 || numUser > 5)
+
+
 console.log(numUser);
+
 //il pc estrae il suo numero
 let numPc = numRandom1To5();
 
