@@ -18,8 +18,9 @@ function palindromo(messaggio) {
     let parola ;
 
     do{
-        parola = prompt(messaggio).replaceAll(" ","").toUpperCase(); 
+        parola = prompt(messaggio).replaceAll(" ","").toUpperCase().replaceAll(/[^\w\s]|_/g, ""); 
     }while(!isNaN(parola))
+
 
    //divido la parola o le parole in caratteri, ne inverto l'ordine e poi li riunisco
     revParola = parola.split("").reverse().join("");
