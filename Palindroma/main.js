@@ -15,7 +15,11 @@ function palindromo(messaggio) {
 
     //acquisisco la stringa, in cui elimino gli spazi e la trasformo tutti i caratteri in maiuscolo
     
-    let parola = prompt(messaggio).replaceAll(" ","").toUpperCase();
+    let parola ;
+
+    do{
+        parola = prompt(messaggio).replaceAll(" ","").toUpperCase(); 
+    }while(!isNaN(parola))
 
    //divido la parola o le parole in caratteri, ne inverto l'ordine e poi li riunisco
     revParola = parola.split("").reverse().join("");
