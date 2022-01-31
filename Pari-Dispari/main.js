@@ -1,7 +1,7 @@
 /*FUNZIONI*/
 //funzione per generare un numero randomico da 1 a 5
-function numRandom1To5 (){
-    return Math.floor(Math.random() * 5) + 1;
+function numRandom1To5 (min, max){
+    return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
 //funzione per sapere se la somma di due numeri è un numero pari o dispari
@@ -10,7 +10,7 @@ function pariDispari ( num1,num2 ){
     let sommaNumeri = num1 + num2;
     //inizializzo la variabile per stampare l'esito
     let risultato;
-    //eseguo il controllo
+    //eseguo il controllo con il modulo
     if(sommaNumeri % 2 == 0){
         risultato = "pari";
     }else{
@@ -45,7 +45,7 @@ buttonPlay.addEventListener('click',
         }while(isNaN(numUser) || numUser < 1 || numUser > 5)
 
         //il pc estrae il suo numero
-        let numPc = numRandom1To5();
+        let numPc = numRandom1To5(1,5);
 
         //si sommano i due numeri e vediamo se la somma ci da un numero pari o dispari
         let risultato = pariDispari (numUser,numPc);
