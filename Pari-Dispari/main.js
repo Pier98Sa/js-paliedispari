@@ -30,7 +30,7 @@ let buttonReset = document.getElementById("reset-game");
 buttonPlay.addEventListener('click',
     function() {
         //variabili da inizializzare
-        let choosePariDispari = 0 
+        let choosePariDispari ;
         let numUser = 0;
         let esitoPartita;
 
